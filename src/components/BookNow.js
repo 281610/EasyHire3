@@ -179,6 +179,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import bike from '../assets/bike.svg';
 import { GiDutchBike } from "react-icons/gi";
+import { chooseU } from './Data.js';
 
 function Select() {
     // Dummy availability data
@@ -215,21 +216,28 @@ function Select() {
         }, 1500);
     };
 
+
+    
     return (
         <section className="full-page">
-            <section className="visualise">
-                <h1>Available Services</h1>
-                <div className="carousel">
-                    {availabilityData.map((item) => {
-                        const { id, title } = item;
-                        return (
-                            <div className="item" key={id}>
-                                <div>{title}</div>
+            
+            <section className="third">
+                            <h1 style={{fontSize:"50px"}}>Services we provide</h1>
+                            <div className="blue-images">
+                                {chooseU.map((img) => {
+                                    const { id, image, title, description } = img;
+            
+                                    return (
+                                        <div className="blue-card" key={id}>
+                                            <div>{image.src}</div>
+                                            <h2>{title}</h2>
+                                            <p>{description}</p>
+                                        </div>
+                                    );
+                                })}
                             </div>
-                        );
-                    })}
-                </div>
-            </section>
+                        </section>
+            
 
             <div className="divider">
                 <GiDutchBike size="50px" />
